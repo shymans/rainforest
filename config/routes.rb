@@ -1,17 +1,9 @@
 Rainforest::Application.routes.draw do
-  get "reviews/show"
-  get "reviews/new"
-  get "reviews/edit"
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "users/new"
-  get "users/create"
   
   resources :products do
     resources :reviews, :except => [:index]
   end
-  resources :users, :only => [:new, :create]
+  resources :users, :only => [:new, :create, :show]
   root 'products#index'
   resources :sessions, :only => [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
